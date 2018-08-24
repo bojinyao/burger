@@ -1,0 +1,44 @@
+<div class="container">
+
+    <img src="../public/assets/img/burger.jpg" class="img-fluid" alt="Responsive image">
+
+    <div class="row justify-content-center">
+        <div class="un-devoured-burgers col-4">
+
+            <ul>
+                {{#each burgers}} 
+                    {{#unless devoured}} 
+                        <li>
+	                        {{burger_name}}
+	                        <button class="change-devour" data-id="{{id}}" data-isDevoured="{{devoured}}">
+                                DEVOUR!
+                            </button>
+                        </li>
+                    {{/unless}} 
+                {{/each}}
+            </ul>
+
+        </div>
+        <div class="devoured-burgers col-4">
+
+            <ul>
+                {{#each burgers}}
+                    {{#if devoured}}
+                        {{burger_name}}
+                     {{/if}}
+                {{/each}}
+            </ul>
+
+        </div>
+    </div>
+
+    <form class="create-form">
+        <div class="form-group">
+            <label>New Burger:</label>
+            <input class="burg" type="text" name="name">
+        </div>
+
+        <button type="submit">Add Burger</button>
+    </form>
+
+</div>
